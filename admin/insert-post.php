@@ -1,6 +1,16 @@
 <?php 
 
 include_once '../config.php';
+$result = false;
+
+if(!empty($_POST)){
+	$sql = 'INSERT INTO blog_posts (title, content) VALUES (:title, :content)';
+	$query = $pdo->prepare($sql);
+	$result = $query->execute([
+		'title' => $_POST['title'],
+		'content' => $_POST['content']
+	]);
+}
 ?>
 
 <html lang="es">
@@ -22,7 +32,14 @@ include_once '../config.php';
 			<div class="col-md-8">
 				<div>
 				<h2>New Post</h2>
-				
+				<p>
+					<a href="posts.php" class="btn btn-default">Regresar</a>
+					<?php
+						if($result){
+							echo '<div class="alert alert-success">Post agregado!</div>';
+						}
+					?>
+				</p>
 
 				<form action="insert-post.php" method="POST">
 				<br>
@@ -33,7 +50,7 @@ include_once '../config.php';
 					<textarea class="form-control" name="content" id="inputContent" cols="" rows="5"></textarea>
 					<br>
 					<input class="btn btn-primary" type="submit" vale="Save">
-					<a href="posts.php" class="btn btn-default">Regresar</a>
+					
 				</form>
 				</div>
 			</div>

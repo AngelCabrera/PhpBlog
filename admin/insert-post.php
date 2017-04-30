@@ -1,11 +1,7 @@
 <?php 
 
-include_once 'config.php';
-$query = $pdo->prepare('SELECT * FROM blog_posts ORDER BY id DESC');
-$query->execute();
-
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
- ?>
+include_once '../config.php';
+?>
 
 <html lang="es">
 <head>
@@ -23,27 +19,28 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 		</div>
 		<div class="row">
-				<div class="col-md-8">
-					<?php 
-					foreach ($blogPosts as $blogPost)
-					{
-						echo '<div class="blog-post">';
-						echo '<h2>'.$blogPost['title'].'</h2>';
-						echo '<p>30 de Abril, 2017 por <a href="#">Ángel Cabrera</a></p>';
-						echo '<div class="blog-post-image">';
-						echo '<img src="images/oasis.jpg" alt="" style="max-width: 100%;">';
-						echo '<div class="blog-post-content">';
-						echo $blogPost['content'];
-						echo '</div>';
-						echo '</div>';
-						echo '</div>';
-					}
+			<div class="col-md-8">
+				<div>
+				<h2>New Post</h2>
+				
 
-					?>
+				<form action="insert-post.php" method="POST">
+				<br>
+					<div class="form-group">
+						<label for="inputTitle">Title</label>						
+						<input class="form-control" type="text" name="title" id="inputTitle">
+					</div>
+					<textarea class="form-control" name="content" id="inputContent" cols="" rows="5"></textarea>
+					<br>
+					<input class="btn btn-primary" type="submit" vale="Save">
+					<a href="posts.php" class="btn btn-default">Regresar</a>
+				</form>
 				</div>
-				<div class="col-md-4">
+			</div>
+				
+			<div class="col-md-4">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quod assumenda laboriosam aperiam illo ullam magni, officia earum esse totam. Dolore ea dolor quaerat eaque perferendis cupiditate reprehenderit quod laborum!
-				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">

@@ -14,22 +14,23 @@
 			</div>
 		</div>
 		<div class="row">
-				<div class="col-md-8">
-					<ul>
-						<li>
-							<a href="posts.php">Manage Posts</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quod assumenda laboriosam aperiam illo ullam magni, officia earum esse totam. Dolore ea dolor quaerat eaque perferendis cupiditate reprehenderit quod laborum!
-				</div>
+			<div class="col-md-8">
+				<h2>Admin Panel</h2>
+				<ul>
+					<li>
+						<a href="<?php echo BASE_URL;?>admin/posts">Manage Posts</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quod assumenda laboriosam aperiam illo ullam magni, officia earum esse totam. Dolore ea dolor quaerat eaque perferendis cupiditate reprehenderit quod laborum!
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<footer>
 					Blog Ángel &copy;<br>
-					<a href="admin/index.php">Admin Panel</a>
+					<a href="<?php echo BASE_URL;?>">Main Page</a>
 				</footer>
 			</div>
 		</div>

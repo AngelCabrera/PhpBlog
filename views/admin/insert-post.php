@@ -1,16 +1,3 @@
-<?php 
-$result = false;
-
-if(!empty($_POST)){
-	$sql = 'INSERT INTO blog_posts (title, content) VALUES (:title, :content)';
-	$query = $pdo->prepare($sql);
-	$result = $query->execute([
-		'title' => $_POST['title'],
-		'content' => $_POST['content']
-	]);
-}
-?>
-
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
@@ -31,15 +18,15 @@ if(!empty($_POST)){
 				<div>
 				<h2>New Post</h2>
 				<p>
-					<a href="posts.php" class="btn btn-default">Regresar</a>
+					<a href="<?php echo BASE_URL;?>admin/posts" class="btn btn-default">Regresar</a>
 					<?php
-						if($result){
+						if(isset($result) && ($result)){
 							echo '<div class="alert alert-success">Post agregado!</div>';
 						}
 					?>
 				</p>
 
-				<form action="insert-post.php" method="POST">
+				<form method="POST">
 				<br>
 					<div class="form-group">
 						<label for="inputTitle">Title</label>						
@@ -61,7 +48,7 @@ if(!empty($_POST)){
 			<div class="col-md-12">
 				<footer>
 					Blog Ángel &copy;<br>
-					<a href="admin/index.php">Admin Panel</a>
+					<a href="<?php echo BASE_URL;?>admin">Admin Panel</a>
 				</footer>
 			</div>
 		</div>
